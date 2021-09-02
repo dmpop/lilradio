@@ -1,9 +1,13 @@
 <?php
-$THEME = "dark";
+$theme = "dark";
+$volume_cookie = "volume_level";
+if (!isset($_COOKIE[$volume_cookie])) {
+	setcookie($volume_cookie, "90", time() + (86400 * 30), "/");
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-theme="<?php echo $THEME ?>">
+<html lang="en" data-theme="<?php echo $theme ?>">
 
 <!-- Author: Dmitri Popov, dmpop@linux.com
 	 License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
@@ -41,7 +45,7 @@ $THEME = "dark";
 			</select>
 			<button type='submit' role='button' name='play'>Play</button>
 			<button type='submit' role='button' name='stop'>Stop</button>
-			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="90" id="slider" name="slider" />
+			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="<?php echo $_COOKIE[$volume_cookie]; ?>" id="slider" name="slider" />
 			<select name="sound">
 				<option value='Headphone'>Headphone</option>
 				<option value='Master'>Speaker</option>
@@ -113,6 +117,8 @@ $THEME = "dark";
 	}
 	if (isset($_POST['volume'])) {
 		shell_exec('amixer sset "' . ($_POST['sound']) . '" ' . ($_POST['slider']) . '% > /dev/null 2>&1 & echo $!');
+		setcookie($volume_cookie, ($_POST['slider']), time() + (86400 * 30), "/");
+		header("Refresh:0");
 	}
 	?>
 	</div>
