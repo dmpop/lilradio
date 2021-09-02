@@ -45,7 +45,8 @@ if (!isset($_COOKIE[$volume_cookie])) {
 			</select>
 			<button type='submit' role='button' name='play'>Play</button>
 			<button type='submit' role='button' name='stop'>Stop</button>
-			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="<?php echo $_COOKIE[$volume_cookie]; ?>" id="slider" name="slider" />
+			<input style="margin-top: 1em; width: 90%; display: inline-block;" type="range" min="1" max="100" step="1" value="<?php echo $_COOKIE[$volume_cookie]; ?>" id="slider" name="slider" oninput="this.nextElementSibling.value = this.value" />
+			<output style="vertical-align: 1.3em;"><?php echo $_COOKIE[$volume_cookie]; ?></output>
 			<select name="sound">
 				<option value='Headphone'>Headphone</option>
 				<option value='Master'>Speaker</option>
