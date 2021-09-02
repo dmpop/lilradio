@@ -41,13 +41,12 @@ $THEME = "dark";
 			</select>
 			<button type='submit' role='button' name='play'>Play</button>
 			<button type='submit' role='button' name='stop'>Stop</button>
-			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="90" id="slider" name="volume" />
+			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="90" id="slider" name="slider" />
 			<select name="sound">
 				<option value='Headphone'>Headphone</option>
-				<option value='Speaker'>Speaker</option>
+				<option value='Master'>Speaker</option>
 			</select>
-			<!-- <input style="margin-top: 1em;" type="text" name="volume" placeholder="91"> -->
-			<button type='submit' role='button' name='save'>Volume</button>
+			<button type='submit' role='button' name='volume'>Volume</button>
 			<button name="delete">Delete station</button>
 	</div>
 	</form>
@@ -113,7 +112,7 @@ $THEME = "dark";
 		shell_exec('killall play > /dev/null 2>&1 & echo $!');
 	}
 	if (isset($_POST['volume'])) {
-		shell_exec('amixer sset "' . ($_POST['sound']) . '" ' . ($_POST['volume']) . '% > /dev/null 2>&1 & echo $!');
+		shell_exec('amixer sset "' . ($_POST['sound']) . '" ' . ($_POST['slider']) . '% > /dev/null 2>&1 & echo $!');
 	}
 	?>
 	</div>
@@ -130,7 +129,7 @@ $THEME = "dark";
 				Press <strong>Stop</strong> to stop streaming
 			</li>
 			<li>
-				To adjust volume, use slider and press <strong>Volumen</strong>
+				To adjust volume, use slider and press <strong>Volume</strong>
 			</li>
 			<li>
 				Press <strong>Delete station</strong> to delete the currently selected playlist file
