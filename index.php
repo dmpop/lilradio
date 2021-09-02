@@ -1,9 +1,10 @@
 <?php
-$SOUND="Headphone";
+$SOUND = "Headphone";
+$THEME = "dark";
 ?>
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="<?php echo $THEME ?>">
 
 <!-- Author: Dmitri Popov, dmpop@linux.com
 	 License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt -->
@@ -41,7 +42,7 @@ $SOUND="Headphone";
 			</select>
 			<button type='submit' role='button' name='play'>Play</button>
 			<button type='submit' role='button' name='stop'>Stop</button>
-			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="90" id="slider" name="volume"/>
+			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="90" id="slider" name="volume" />
 			<!-- <input style="margin-top: 1em;" type="text" name="volume" placeholder="91"> -->
 			<button type='submit' role='button' name='save'>Volume</button>
 			<button name="delete">Delete station</button>
@@ -126,7 +127,7 @@ $SOUND="Headphone";
 				Press <strong>Stop</strong> to stop streaming
 			</li>
 			<li>
-				To adjust volume, use slider and press <strong>Volumen</strong> 
+				To adjust volume, use slider and press <strong>Volumen</strong>
 			</li>
 			<li>
 				Press <strong>Delete station</strong> to delete the currently selected playlist file
