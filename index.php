@@ -1,5 +1,4 @@
 <?php
-$SOUND = "Headphone";
 $THEME = "dark";
 ?>
 
@@ -43,6 +42,10 @@ $THEME = "dark";
 			<button type='submit' role='button' name='play'>Play</button>
 			<button type='submit' role='button' name='stop'>Stop</button>
 			<input style="margin-top: 1em;" type="range" min="1" max="100" step="1" value="90" id="slider" name="volume" />
+			<select name="sound">
+				<option value='Headphone'>Headphone</option>
+				<option value='Speaker'>Speaker</option>
+			</select>
 			<!-- <input style="margin-top: 1em;" type="text" name="volume" placeholder="91"> -->
 			<button type='submit' role='button' name='save'>Volume</button>
 			<button name="delete">Delete station</button>
@@ -110,12 +113,12 @@ $THEME = "dark";
 		shell_exec('killall play > /dev/null 2>&1 & echo $!');
 	}
 	if (isset($_POST['volume'])) {
-		shell_exec('amixer sset "' . $SOUND . '" ' . ($_POST['volume']) . '% > /dev/null 2>&1 & echo $!');
+		shell_exec('amixer sset "' . ($_POST['sound']) . '" ' . ($_POST['volume']) . '% > /dev/null 2>&1 & echo $!');
 	}
 	?>
 	</div>
-	<div class="card">
-		<h2 style="margin-top: 0em;">Help</h2>
+	<details>
+		<summary style="letter-spacing: 1px; text-transform: uppercase;">Help</summary>
 		<ul>
 			<li>
 				Use the <strong>Upload</strong> form to upload playlist files
@@ -136,7 +139,7 @@ $THEME = "dark";
 				To stream a radio station in the browser, enter the URL of the desired MP3 stream and press <strong>Stream</strong>
 			</li>
 		</ul>
-	</div>
+	</details>
 </body>
 
 </html>
