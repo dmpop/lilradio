@@ -16,6 +16,10 @@ Simple PHP web UI for streaming radio stations.
 3. In the terminal, switch to the _lilradio_ directory and run the `php -S 0.0.0.0:8000` command.
 4. On any other machine on the same network, point the browser to _127.0.0.01:8000_  (replace _127.0.0.1_ with the actual IP address of the machine running Little Radio).
 
+To install Little Radio on Raspberry Pi, run the following command:
+
+    curl -sSL https://raw.githubusercontent.com/dmpop/lilradio/main/install.sh | bash
+
 ## Problems?
 
 Please report bugs and issues in the [Issues](https://gitlab.com/dmpop/lilradio/issues) section.
