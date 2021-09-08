@@ -53,6 +53,7 @@ if (!isset($_COOKIE[$volume_cookie])) {
 			</select>
 			<button type='submit' role='button' name='volume'>Volume</button>
 			<button name="delete">Delete station</button>
+			<button name="off">Power off</button>
 	</div>
 	</form>
 	</div>
@@ -120,6 +121,12 @@ if (!isset($_COOKIE[$volume_cookie])) {
 		shell_exec('amixer sset "' . ($_POST['sound']) . '" ' . ($_POST['slider']) . '% > /dev/null 2>&1 & echo $!');
 		setcookie($volume_cookie, ($_POST['slider']), time() + (86400 * 30), "/");
 		header("Refresh:0");
+	}
+	if (isset($_POST['off'])) {
+		shell_exec('sudo poweroff');
+		echo "<script>";
+		echo "Little Radio is powered off. You can close this page.";
+		echo "</script>";
 	}
 	?>
 	</div>
