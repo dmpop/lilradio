@@ -23,7 +23,7 @@ if (!isset($_COOKIE[$volume_cookie])) {
 
 <body>
 	<div class="card text-center" style="margin-bottom: 2em;">
-		<h1 style="margin-top: 0em; margin-bottom: 0.7em; vertical-align: middle; letter-spacing: 3px; margin-top: 0.5em; color: #f6a159ff; text-transform: uppercase;">Little radio</h1>
+		<h1 style="margin-top: 0em; margin-bottom: 0.7em; vertical-align: middle; letter-spacing: 3px; margin-top: 0.5em; color: #c83771; text-transform: uppercase;">Little radio</h1>
 		<hr style="margin-bottom: 1em;">
 		<?php
 		$dir = "pls";
